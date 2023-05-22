@@ -11,7 +11,7 @@ import org.hibernate.validator.constraints.Length;
 @Data
 @AllArgsConstructor
 public class Product {
-    @NotNull(message = " the ID Cannot be null")
+    @NotNull
     @Size(min =3,message = "the id should be 3 ")
     private int id;
     @NotEmpty(message = "title cant be embty")

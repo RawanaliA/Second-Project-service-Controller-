@@ -46,7 +46,8 @@ public ResponseEntity deleteProduct(@PathVariable int id){
         boolean isDeleted=productService.deleteProduct(id);
         if (isDeleted){
             return ResponseEntity.status(200).body("THe product is deleted");
-        }return ResponseEntity.status(400).body("Wrong id");
+        }
+        return ResponseEntity.status(400).body("Wrong id");
 
 }//i need to review it
 }

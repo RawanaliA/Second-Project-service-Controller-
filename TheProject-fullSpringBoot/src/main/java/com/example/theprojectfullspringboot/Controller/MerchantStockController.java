@@ -1,14 +1,14 @@
 package com.example.theprojectfullspringboot.Controller;
-
 import com.example.theprojectfullspringboot.ApiResponse.ApiResponse;
 import com.example.theprojectfullspringboot.Model.MerchantStock;
+import com.example.theprojectfullspringboot.Model.Product;
 import com.example.theprojectfullspringboot.Service.MerchantStockService;
+import com.example.theprojectfullspringboot.Service.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 
 @RestController
@@ -47,13 +47,14 @@ public class MerchantStockController {
         }
         return ResponseEntity.status(400).body("Wrong id");
     }
-    @PutMapping("/addProdudct/{id}")
+    @PostMapping ("/addProdudct/{id}/{productid}/{merchantid}")
     public ResponseEntity addProdudctTo(@Valid@PathVariable int id,int productid,int merchantid,int stock,Errors errors){
         if(errors.hasErrors()){
+//            ArrayList<Product>products=productService.getProducts();
             String massage=errors.getFieldError().getDefaultMessage();
             return ResponseEntity.status(400).body(new ApiResponse(massage));
         }
-        merchantStockService.addProudacts();
+        productService.getProducts().add();
         return ResponseEntity.status(200).body("addMerchantStockService Succssufully");
 
     }

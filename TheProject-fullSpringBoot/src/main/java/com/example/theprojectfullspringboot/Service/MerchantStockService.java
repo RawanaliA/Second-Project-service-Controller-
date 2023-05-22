@@ -1,18 +1,18 @@
 package com.example.theprojectfullspringboot.Service;
 
 import com.example.theprojectfullspringboot.Model.MerchantStock;
-import jakarta.validation.Valid;
-import org.springframework.http.ResponseEntity;
+
+import com.example.theprojectfullspringboot.Model.Product;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 @Service
 public class MerchantStockService {
    ArrayList<MerchantStock>merchantStocks=new ArrayList<>();
+    ArrayList<Product> products=new ArrayList<>();
 
-   public ArrayList<MerchantStock> getMerchantStock(){
+
+    public ArrayList<MerchantStock> getMerchantStock(){
        return merchantStocks;
    }
    public void addMerchantStock(MerchantStock merchantStock){
@@ -39,26 +39,18 @@ public class MerchantStockService {
    //reduce the stock from the MerchantStock.
    //deducted the price of the product from the user balance.
    //if balance is less than the product price return bad request.
-    public boolean addProudacts(int id,int productid,int merchantid,int stock) {
+    public void addProudactsTo(int id,int productid,int merchantid,int stock,Product product) {
         for (int i = 0; i < merchantStocks.size(); i++) {
             if (merchantStocks.get(i).getId() == id & merchantStocks.get(i).getProductid() == productid & merchantStocks.get(i).getMerchantid() == merchantid)
-//                merchantStocks.set(i)
-                return true;
-        }return false;
+
+//
         for (int i = 0; i < merchantStocks.size(); i++) {
-            if(merchantStocks.get(i).getStock()==productid)
-                merchantStocks.get(i).=-stock;
+            if(merchantStocks.get(i).getStock()!=0){
+                String toAdd=products.get(product).getId()+stock;
+            }
+//                merchantStocks.add(product,stock);
         }
         }//first-Q
-    public boolean buyProudacts(int id,int productid,int merchantid,int stock) {
-        for (int i = 0; i < merchantStocks.size(); i++) {
-            if (merchantStocks.get(i).getId() == id & merchantStocks.get(i).getProductid() == productid & merchantStocks.get(i).getMerchantid() == merchantid)
-                if(stock>0)
-                 merchantStocks.set(i,addProudacts(stock));
-                return true;
-        }
-        return false;
-        //second
 
     }
     }

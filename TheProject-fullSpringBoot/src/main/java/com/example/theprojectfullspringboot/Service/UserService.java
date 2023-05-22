@@ -5,7 +5,6 @@ import com.example.theprojectfullspringboot.Model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-
 @Service
 public class UserService {
     ArrayList<User> users=new ArrayList<>();
@@ -32,10 +31,14 @@ public class UserService {
         }
         return false;
     }
-//    public boolean add
-//     for (int i = 0; i < merchantStocks.size(); i++) {
-//        if(merchantStocks.get(i).getStock()==productid)
-//            merchantStocks.
-//    }
+    public boolean buyProudacts(int id,int productid,int merchantid,int stock) {
+        for (int i = 0; i < users.size(); i++) {
+//            if (users.get(i).getId() == id & users.get(i).getProductid() == productid & users.get(i).getMerchantid() == merchantid)
+//                if(stock>0)
+//
+//            return true;
+//        }
+//        return false;
+        //second
 
-}
+}}

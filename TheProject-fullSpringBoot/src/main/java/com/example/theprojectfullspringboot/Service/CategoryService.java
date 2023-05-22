@@ -33,5 +33,8 @@ public class CategoryService {
                 return true;
         }return false;
     }
+//    public categories CategoYYries(){
+//        return categories;
+//    }
 
 }
